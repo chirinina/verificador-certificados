@@ -3,362 +3,216 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Credencial Digital Verificada - ESAM</title>
+    <title>Credencial Digital Verificada - ESAM (Tailwind CSS)</title>
+
     <!-- Favicon (ícono de la pestaña) -->
     <link
       rel="icon"
       href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkv-3rBHkhu3dVCgCkbtWQntutxM8ERkOpZEEN0R0KmXMgKIapJ-gIuCaiIB_aIRRRaRc&usqp=CAU"
     />
 
-    <!-- Google Fonts y Kit de Íconos -->
+    <!-- Script de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Kit de Íconos de Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/4a9d70a597.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <script
-      src="https://kit.fontawesome.com/4a9d70a597.js"
-      crossorigin="anonymous"
-    ></script>
 
-    <style>
-      :root {
-        /* Paleta de Colores Mejorada */
-        --esam-blue-dark: #011229;
-        --esam-blue-light: #03234f;
-        --esam-gold: #ffc404;
-        --error-red: #ef4444;
-        --bg-gradient-start: #f4f6f9;
-        --bg-gradient-end: #e3e8f0;
-        --card-bg: #ffffff;
-        --text-dark: #111827;
-        --text-light: #6b7280;
-        --border-color: #e5e7eb;
-      }
-
-      /* --- ANIMACIÓN DE ENTRADA --- */
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: scale(0.95);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
-      }
-
-      body {
-        font-family: "Poppins", sans-serif;
-        background-image: linear-gradient(
-          120deg,
-          var(--bg-gradient-start),
-          var(--bg-gradient-end)
-        );
-        color: var(--text-dark);
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        padding: 2rem;
-        box-sizing: border-box;
-      }
-
-      /* --- ESTRUCTURA DE LA TARJETA --- */
-      .card {
-        max-width: 800px;
-        width: 100%;
-        background-color: var(--card-bg);
-        border-radius: 24px;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1),
-          0 10px 15px -3px rgba(0, 0, 0, 0.05);
-        overflow: hidden;
-        animation: fadeIn 0.8s ease-out forwards;
-        border: 1px solid var(--border-color);
-        display: flex;
-      }
-
-      /* --- LADO IZQUIERDO (MARCA Y ESTADO) --- */
-      .branding-side {
-        background-image: linear-gradient(
-          160deg,
-          var(--esam-blue-light),
-          var(--esam-blue-dark)
-        );
-        color: #ffffff;
-        padding: 40px;
-        width: 35%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        text-align: center;
-        position: relative;
-      }
-
-      .esam-logo {
-        width: 100px;
-        margin-bottom: 20px;
-      }
-
-      .status-badge {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-      }
-
-      .status-icon {
-        width: 70px;
-        height: 70px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 32px;
-        background-color: rgba(255, 255, 255, 0.1);
-      }
-
-      .status-text {
-        font-size: 20px;
-        font-weight: 700;
-        letter-spacing: 1px;
-      }
-
-      /* ESTILO PARA CORONA DORADA */
-      .verified .status-icon {
-        color: var(--esam-gold);
-      }
-      .verified .status-text {
-        color: var(--esam-gold);
-      }
-
-      .invalid .status-icon {
-        color: var(--error-red);
-      }
-      .invalid .status-text {
-        color: var(--error-red);
-      }
-
-      .branding-footer {
-        font-size: 12px;
-        color: rgba(255, 255, 255, 0.5);
-      }
-
-      /* --- LADO DERECHO (DETALLES) --- */
-      .details-side {
-        padding: 50px;
-        width: 65%;
-      }
-
-      .details-side h1 {
-        font-size: 28px;
-        font-weight: 700;
-        margin: 0 0 5px 0;
-        color: var(--esam-blue-dark);
-      }
-
-      .details-side .subtitle {
-        font-size: 16px;
-        color: var(--text-light);
-        margin-bottom: 40px;
-        font-weight: 400;
-      }
-
-      .details-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 30px;
-      }
-
-      .detail-item {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-
-      .detail-item .icon {
-        font-size: 20px;
-        color: var(--esam-gold);
-        width: 25px;
-        text-align: center;
-      }
-
-      .detail-item .text-content span {
-        font-size: 12px;
-        color: var(--text-light);
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        display: block;
-      }
-
-      .detail-item .text-content p {
-        font-size: 15px;
-        margin: 0;
-        font-weight: 500;
-        color: var(--text-dark);
-      }
-
-      .footer-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        margin-top: 40px;
-        font-size: 14px;
-        font-weight: 600;
-        text-decoration: none;
-        transition: all 0.2s ease;
-      }
-
-      /* Estilo de Botón para el enlace de éxito */
-      #verification-container .footer-link {
-        color: #fff;
-        background-color: var(--esam-blue-dark);
-        padding: 12px 24px;
-        border-radius: 8px;
-      }
-      #verification-container .footer-link:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 20px rgba(2, 22, 49, 0.2);
-      }
-
-      /* Estilo de Texto para el enlace de error */
-      #error-container .footer-link {
-        color: var(--text-light);
-        background-color: transparent;
-      }
-      #error-container .footer-link:hover {
-        color: var(--esam-blue-dark);
-        text-decoration: underline;
-      }
-
-      /* --- ESTILOS PARA LA TARJETA DE ERROR --- */
-      .error .branding-side {
-        background-image: linear-gradient(160deg, #4b5563, #1f2937);
-      }
-      .error h1.error-title {
-        color: var(--error-red);
-      }
-
-      /* --- DISEÑO RESPONSIVE --- */
-      @media (max-width: 768px) {
-        .card {
-          flex-direction: column;
-        }
-        .branding-side,
-        .details-side {
-          width: 100%;
-          box-sizing: border-box;
-        }
-        .branding-side {
-          padding: 30px;
-          height: 250px;
-          justify-content: center;
-        }
-        .details-side {
-          padding: 40px 30px;
-        }
-        .details-grid {
-          grid-template-columns: 1fr;
-          gap: 25px;
-        }
-      }
-    </style>
+    <script>
+      // Configuración personalizada para Tailwind (opcional, pero útil para usar la fuente Poppins)
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Poppins", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
   </head>
-  <body>
+  <body
+    class="bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center min-h-screen p-4 md:p-8 font-sans"
+  >
     <!-- Contenedor de Verificación Exitosa -->
-    <div class="card" id="verification-container" style="display: none">
-      <div class="branding-side">
+    <div
+      id="verification-container"
+      style="display: none"
+      class="w-full max-w-4xl bg-white shadow-2xl rounded-3xl overflow-hidden flex flex-col md:flex-row animate-fade-in-up"
+    >
+      <!-- Lado Izquierdo: Marca y Estado -->
+      <div
+        class="w-full md:w-[35%] bg-gradient-to-br from-[#03234F] to-[#011229] text-white p-8 flex flex-col justify-between items-center text-center"
+      >
         <img
           src="https://www.esam.edu.bo/img/logo_esam_principal.png"
           alt="Logo ESAM"
-          class="esam-logo"
+          class="w-24"
         />
-        <div class="status-badge verified">
-          <!-- ICONO DE CORONA AÑADIDO -->
-          <div class="status-icon"><i class="fas fa-crown"></i></div>
-          <span class="status-text">VERIFICADO</span>
+
+        <div class="flex flex-col items-center gap-4 my-8 md:my-0">
+          <div
+            class="flex items-center justify-center w-[70px] h-[70px] rounded-full bg-white/10"
+          >
+            <i class="fas fa-crown text-3xl text-yellow-400"></i>
+          </div>
+          <span class="font-bold text-xl tracking-wider text-yellow-400"
+            >VERIFICADO</span
+          >
         </div>
-        <div class="branding-footer">ESAM</div>
+
+        <div class="font-light text-white/50 text-sm">ESAM</div>
       </div>
-      <div class="details-side">
-        <h1>Credencial Digital</h1>
-        <p class="subtitle">
+
+      <!-- Lado Derecho: Detalles -->
+      <div class="w-full md:w-[65%] p-8 md:p-12">
+        <h1 class="text-3xl font-bold text-[#011229] mb-1">
+          Credencial Digital
+        </h1>
+        <p class="text-base text-slate-500 mb-10">
           Este documento es auténtico y ha sido emitido por ESAM.
         </p>
-        <div class="details-grid">
-          <div class="detail-item">
-            <div class="icon"><i class="fas fa-graduation-cap"></i></div>
-            <div class="text-content">
-              <span>Programa o Curso</span>
-              <p id="prog-data"></p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+          <div class="flex items-center gap-4">
+            <i
+              class="fas fa-graduation-cap text-xl text-yellow-400 w-6 text-center"
+            ></i>
+            <div>
+              <span
+                class="text-xs font-semibold text-slate-400 uppercase tracking-wider"
+                >Programa o Curso</span
+              >
+              <p
+                id="prog-data"
+                class="text-base font-medium text-slate-800"
+              ></p>
             </div>
           </div>
-          <div class="detail-item">
-            <div class="icon"><i class="fas fa-user"></i></div>
-            <div class="text-content">
-              <span>Otorgado a</span>
-              <p id="name-data"></p>
+          <div class="flex items-center gap-4">
+            <i class="fas fa-user text-xl text-yellow-400 w-6 text-center"></i>
+            <div>
+              <span
+                class="text-xs font-semibold text-slate-400 uppercase tracking-wider"
+                >Otorgado a</span
+              >
+              <p
+                id="name-data"
+                class="text-base font-medium text-slate-800"
+              ></p>
             </div>
           </div>
-          <div class="detail-item">
-            <div class="icon"><i class="fas fa-barcode"></i></div>
-            <div class="text-content">
-              <span>ID de Certificado</span>
-              <p id="id-data"></p>
+          <div class="flex items-center gap-4">
+            <i
+              class="fas fa-barcode text-xl text-yellow-400 w-6 text-center"
+            ></i>
+            <div>
+              <span
+                class="text-xs font-semibold text-slate-400 uppercase tracking-wider"
+                >ID de Certificado</span
+              >
+              <p id="id-data" class="text-base font-medium text-slate-800"></p>
             </div>
           </div>
-          <div class="detail-item">
-            <div class="icon"><i class="fas fa-calendar-alt"></i></div>
-            <div class="text-content">
-              <span>Fecha de Emisión</span>
-              <p id="date-data"></p>
+          <div class="flex items-center gap-4">
+            <i
+              class="fas fa-calendar-alt text-xl text-yellow-400 w-6 text-center"
+            ></i>
+            <div>
+              <span
+                class="text-xs font-semibold text-slate-400 uppercase tracking-wider"
+                >Fecha de Emisión</span
+              >
+              <p
+                id="date-data"
+                class="text-base font-medium text-slate-800"
+              ></p>
             </div>
           </div>
         </div>
-        <a href="https://www.esam.edu.bo/" target="_blank" class="footer-link"
-          >Visitar Sitio Oficial
-          <i
-            class="fas fa-arrow-right"
-            style="font-size: 12px; margin-left: 5px"
-          ></i
-        ></a>
+
+        <a
+          href="https://www.esam.edu.bo/"
+          target="_blank"
+          class="inline-flex items-center gap-2 mt-10 px-6 py-3 bg-[#011229] text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
+        >
+          Visitar Sitio Oficial
+          <i class="fas fa-arrow-right text-xs"></i>
+        </a>
       </div>
     </div>
 
     <!-- Contenedor de Error -->
-    <div class="card error" id="error-container" style="display: none">
-      <div class="branding-side">
+    <div
+      id="error-container"
+      style="display: none"
+      class="w-full max-w-4xl bg-white shadow-2xl rounded-3xl overflow-hidden flex flex-col md:flex-row animate-fade-in-up"
+    >
+      <!-- Lado Izquierdo: Marca y Estado -->
+      <div
+        class="w-full md:w-[35%] bg-gradient-to-br from-slate-600 to-slate-800 text-white p-8 flex flex-col justify-between items-center text-center"
+      >
         <img
           src="https://www.esam.edu.bo/img/logo_esam_principal.png"
           alt="Logo ESAM"
-          class="esam-logo"
+          class="w-24"
         />
-        <div class="status-badge invalid">
-          <div class="status-icon"><i class="fas fa-times"></i></div>
-          <span class="status-text">NO VÁLIDO</span>
+
+        <div class="flex flex-col items-center gap-4 my-8 md:my-0">
+          <div
+            class="flex items-center justify-center w-[70px] h-[70px] rounded-full bg-white/10"
+          >
+            <i class="fas fa-times text-4xl text-red-400"></i>
+          </div>
+          <span class="font-bold text-xl tracking-wider text-red-400"
+            >NO VÁLIDO</span
+          >
         </div>
-        <div class="branding-footer">ESAM</div>
+
+        <div class="font-light text-white/50 text-sm">ESAM</div>
       </div>
-      <div class="details-side">
-        <h1 class="error-title">Verificación Fallida</h1>
-        <p class="subtitle">
+
+      <!-- Lado Derecho: Detalles -->
+      <div class="w-full md:w-[65%] p-8 md:p-12">
+        <h1 class="text-3xl font-bold text-red-500 mb-1">
+          Verificación Fallida
+        </h1>
+        <p class="text-base text-slate-500 mb-10">
           No se pudieron validar los datos. Por favor, contacte a la institución
           para más información.
         </p>
-        <!-- ESTILO DE ENLACE DE TEXTO APLICADO AQUÍ -->
-        <a href="https://www.esam.edu.bo/" target="_blank" class="footer-link">
+
+        <a
+          href="https://www.esam.edu.bo/"
+          target="_blank"
+          class="inline-flex items-center gap-2 mt-10 font-semibold text-slate-500 hover:text-[#011229] hover:underline transition-colors duration-200"
+        >
           Ir al Sitio de ESAM
-          <i class="fas fa-arrow-right" style="font-size: 12px"></i>
+          <i class="fas fa-arrow-right text-xs"></i>
         </a>
       </div>
     </div>
 
     <script>
       // NO TOCAR ESTE SCRIPT. FUNCIONA PERFECTO.
+      // Añadimos una pequeña animación para la entrada de la tarjeta.
+      function showCard(cardId) {
+        const card = document.getElementById(cardId);
+        card.style.display = "flex";
+        // Tailwind no tiene una clase de animación por defecto, pero podemos añadirla con CSS si es necesario.
+        // Por ahora, el simple 'flex' es suficiente para mostrarlo.
+      }
+
       window.onload = function () {
         const params = new URLSearchParams(window.location.search);
 
@@ -372,10 +226,9 @@
           document.getElementById("name-data").textContent = name;
           document.getElementById("id-data").textContent = id;
           document.getElementById("date-data").textContent = date;
-          document.getElementById("verification-container").style.display =
-            "flex";
+          showCard("verification-container");
         } else {
-          document.getElementById("error-container").style.display = "flex";
+          showCard("error-container");
         }
       };
     </script>
