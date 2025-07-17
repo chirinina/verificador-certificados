@@ -2,232 +2,371 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Credencial Digital Verificada - ESAM</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-      :root {
-        --esam-blue: #004AAD;
-        --esam-gold: #D4AF37; /* Un toque de dorado para un look premium */
-        --success-green: #10B981;
-        --error-red: #EF4444;
-        --bg-color: #E5E7EB; /* Un gris más claro y moderno */
-        --card-bg: #FFFFFF;
-        --dark-text: #1F2937;
-        --light-text: #6B7280;
-      }
-
-      /* --- ANIMACIÓN --- */
-      @keyframes fadeInSlideUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
+    <meta name: translateY(0) scale(1);
         }
       }
 
       body {
         font-family: 'Poppins', sans-serif;
-        background-color: var(--bg-color);
-        color: var(--dark-text);
+        background: linear-gradient(135deg, var(--esam-blue-="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dark) 0%, var(--purple-deep) 100%);
         margin: 0;
-        display: flex;
+        display:Verificación de Credencial Digital - ESAM</title>
+    <link rel="preconnect" href="https://fonts. flex;
         justify-content: center;
         align-items: center;
-        min-height: 100vh;
+        min-height:googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 100vh;
         padding: 20px;
+        color: var(--text-light);
       }
 
-      /* --- ESTRUCTURA DE LA TARJETA --- */
-      .card {
-        display: flex;
-        max-width: 700px;
+      /* --- LA TARJETA DE CRISTAL --- */
+      .glass-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --esam-dark-blue: #0A2B5-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px); /* Soporte para Safari */
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        padding: 35px;
+        max-width: 400px;
         width: 100%;
-        background-color: var(--card-bg);
-        border-radius: 16px;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        overflow: hidden;
-        animation: fadeInSlideUp 0.8s ease-out forwards;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, E;
+        --esam-light-blue: #1E88E5;
+        --success-glow: #00FFC2;
+        --error-glow: #FF4747;
+        --text-light: #FFFFFF;
+        --text-medium: #E0E0E0;
+        --text-dark: #BDBDBD;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+0.3);
+        text-align: center;
+        animation: slideInFade 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards      }
+
+      body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;;
       }
       
-      /* --- LADO IZQUIERDO (MARCA) --- */
-      .branding-side {
-        background-color: var(--esam-blue);
-        color: #FFFFFF;
-        padding: 40px;
-        width: 40%;
+      /* --- CONTENIDO DE LA TARJETA --- */
+      .card-header {
+
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
-        text-align: center;
-        position: relative;
+        min-height        margin-bottom: 25px;
       }
-      .branding-side::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url('https://www.transparenttextures.com/patterns/clean-gray-paper.png');
-        opacity: 0.05;
+      .esam-logo-white {
+        : 100vh;
+        padding: 20px;
+        background: linear-gradient(width: 150px;
+        margin-bottom: 25px;
       }
-      .esam-logo {
-        width: 120px;
-        margin-bottom: 20px;
-      }
-      .verification-status {
-        font-size: 24px;
-        font-weight: 700;
-        letter-spacing: 1px;
-        border-top: 2px solid var(--esam-gold);
-        border-bottom: 2px solid var(--esam-gold);
-        padding: 10px 0;
+      .135deg, var(--esam-dark-blue) 0%, #000000 1status-pill {
+        display: inline-block;
+        padding: 6px 15px;
+        00%);
       }
 
-      /* --- LADO DERECHO (DETALLES) --- */
-      .details-side {
-        padding: 40px;
-        width: 60%;
-      }
-      .details-side h1 {
-        font-size: 22px;
-        font-weight: 600;
-        margin: 0 0 5px 0;
-      }
-      .details-side .subtitle {
+      /* --- La Credencial de Cristal --- */
+      .verification-card {
+        border-radius: 20px;
         font-size: 14px;
-        color: var(--light-text);
+        font-weight:background: rgba(255, 255, 255, 0.1);
+        backdrop 600;
+        letter-spacing: 0.5px;
+      }
+      .status-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        -pill.success {
+        background-color: rgba(16, 185, 12border: 1px solid rgba(255, 255, 255, 09, 0.3);
+        color: #D1FAE5;
+        border: 1px solid.2);
+        border-radius: 20px;
+        padding: 40px;
+         rgba(16, 185, 129, 0.5);
+      }
+      max-width: 480px;
+        width: 100%;
+        box-shadow.status-pill.error {
+        background-color: rgba(239, 68, 6: 0 15px 35px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        color: var(--text-light);
+        animation: fadeIn 0.78, 0.3);
+        color: #FEE2E2;
+        border: 1px solid rgba(239, 68, 68, 0.5);
+      }
+
+      .card-body h1 {
+        font-size: 18px;
+        font-weight: 40s ease-in-out;
+      }
+
+      .card-header {
         margin-bottom: 30px;
       }
-      .detail-item {
-        margin-bottom: 20px;
+      
+      .logo {
+        height: 60px; /* Un0;
+        color: var(--text-translucent);
+        margin: 0 0 25 poco más grande para más impacto */
+        margin-bottom: 25px;
       }
-      .detail-item span {
-        font-size: 12px;
-        color: var(--light-text);
-        font-weight: 600;
+
+      hpx 0;
+      }
+      .info-grid {
+        text-align: left;
+        border1 {
+        font-size: 24px;
+        font-weight: 700;-top: 1px solid rgba(255, 255, 255, 
+        letter-spacing: 1px;
+        margin: 0;
         text-transform: uppercase;
-        display: block;
-        margin-bottom: 4px;
+      0.2);
+        padding-top: 15px;
       }
-      .detail-item p {
+      .info-item {
+}
+      .success h1 {
+        color: var(--success-glow);
+        text-shadow: 0         margin-bottom: 15px;
+      }
+      .info-item span {
+        font0 15px rgba(0, 255, 194, 0.5);
+      -size: 12px;
+        color: var(--text-translucent);
+        font-weight: 500;
+        display: block;
+      }
+      .info-item p {
+}
+      .error h1 {
+        color: var(--error-glow);
+        text-shadow:        font-size: 16px;
+        font-weight: 600;
+        margin 0 0 15px rgba(255, 71, 71, 0.5);
+      }
+      
+      .glowing-divider {
+        height: 1px;
+        border: 2px 0 0 0;
+      }
+
+      /* --- ICONO EXTERNO (REEMPLAZA BOTÓN) --- */
+      .card-footer {
+        margin-top: 25px;
+      }
+      .icon-link {
+        display: inline-block;
+        color: var(--text-translucent);
+        transition: color 0.3s ease;
+      }
+      .icon: none;
+        width: 80%;
+        margin: 30px auto;
+      }
+      .success .glowing-divider {
+        background: var(--success-glow);
+        box-shadow: 0 0 10px var(--success-glow);
+      }
+      .error .glowing-divider {
+        -link:hover {
+        color: var(--text-light);
+      }
+      .icon-linkbackground: var(--error-glow);
+        box-shadow: 0 0 10px var(-- svg {
+        width: 24px;
+        height: 24px;
+      }
+      
+    </style>
+</head>
+<body>
+
+    <!-- Contenedor de Verificación Exitosa -->error-glow);
+      }
+      
+      .details-section {
+        text-align: left;
+        display: grid;
+        gap: 20px;
+      }
+
+      .detail-item span {
+        font
+    <div class="glass-card" id="verification-container" style="display: none;">
+        <div class-size: 12px;
+        color: var(--text-dark);
+        font-weight:="card-header">
+            <!-- Usamos el logo blanco oficial de ESAM -->
+            <img src="https:// 500;
+        display: block;
+        margin-bottom: 5px;
+      }
+      .www.esam.edu.bo/img/logo_esam_blanco.png" alt="Logo ESAM" class="esam-logo-white">
+            <div class="status-pill success">CERTIFICADO AUTÉNTICO</div>
+        </div>
+        <div class="card-body">
+            <div class="info-grid">
+                <div class="info-item">
+                    <span>PROGRAMA</span>
+                    <p id="prog-data"></p>
+                </div>
+                <div class="info-item">
+                    <span>EMITIDO A</span>
+                    <p id="name-data"></p>
+                </div>
+                <div class="info-item">
+                    <span>ID DE CREDENCIAL</span>
+                    <p id="id-data"></p>
+                </div>
+                detail-item p {
         font-size: 16px;
         margin: 0;
         font-weight: 400;
-      }
-      .footer-link {
-        display: inline-block;
-        margin-top: 20px;
-        font-size: 14px;
-        font-weight: 600;
-        color: var(--esam-blue);
-        text-decoration: none;
-        transition: opacity 0.2s;
-      }
-      .footer-link:hover {
-        opacity: 0.8;
-      }
-      
-      /* --- ESTILOS PARA LA TARJETA DE ERROR --- */
-      .error .branding-side {
-        background-color: #374151; /* Gris oscuro para error */
-      }
-      .error .verification-status {
-        border-color: var(--error-red);
-      }
-      .error h1 {
-        color: var(--error-red);
+        color: var(--text-medium);
       }
 
-      /* --- RESPONSIVE DESIGN --- */
-      @media (max-width: 640px) {
-        .card {
-          flex-direction: column;
-        }
-        .branding-side, .details-side {
-          width: 100%;
-          box-sizing: border-box;
-        }
-        .branding-side {
-          padding: 30px;
-        }
-        .esam-logo {
-          width: 100px;
-        }
+      .card-footer {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+      
+      .footer-text {
+        font-size: 12px;
+        color: var(--text-dark);
+      }
+
+      .icon-link {
+        color: var(--text-medium);
+        text-decoration: none;
+        transition: color 0.3s, transform 0.3s;
+      }
+      .<div class="info-item">
+                    <span>FECHA DE EMISIÓN</span>
+                    <p id="icon-link:hover {
+        color: var(--text-light);
+        transform: scale(1.date-data"></p>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer1);
+      }
+      .icon-link svg {
+        width: 28px;
+        ">
+            <a href="https://www.esam.edu.bo/" target="_blank" class="iconheight: 28px;
       }
 
     </style>
 </head>
 <body>
 
-    <!-- Contenedor de Verificación Exitosa -->
-    <div class="card" id="verification-container" style="display: none;">
-        <div class="branding-side">
-            <img src="https://www.esam.edu.bo/img/logo_esam_principal.png" alt="Logo ESAM" class="esam-logo">
-            <div class="verification-status" style="color: var(--success-green);">VERIFICADO</div>
+    <!---link" aria-label="Visitar el sitio oficial de ESAM">
+                <svg xmlns="http://www Contenedor de Verificación Exitosa -->
+    <div class="verification-card success" id="verification-container".w3.org/2000/svg" fill="none" viewBox="0 0 2 style="display: none;">
+        <div class="card-header">
+            <!-- NOTA: He encontrado4 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2. y usado una versión blanca del logo para que se vea perfecto. -->
+            <img src="https://i.ibb.co/L5k6z31/logo-esam-blanco.png" alt="Logo ESAM" class="logo">
+            <h1>Certificado Verificado</h1>
         </div>
-        <div class="details-side">
-            <h1>Credencial Digital</h1>
-            <p class="subtitle">Este documento es auténtico y ha sido emitido por ESAM.</p>
-            <div class="detail-item">
-                <span>Programa o Curso</span>
+        <hr class="g25 0 003 8.25v10.5A2.25 lowing-divider">
+        <div class="details-section">
+            <div class="detail-item">2.25 0 005.25 21h10.5A2.25 
+                <span>Programa</span>
                 <p id="prog-data"></p>
             </div>
-            <div class="detail-item">
-                <span>Otorgado a</span>
-                <p id="name-data"></p>
+            <div2.25 0 0018 18.75V10.5m-4 class="detail-item">
+                <span>Credencial Otorgada a</span>
+                <p id="name-.5 0V6.75A2.25 2.25 0 01data"></p>
             </div>
             <div class="detail-item">
-                <span>ID de Certificado</span>
+                <span>ID Único de Verificación</span>
                 <p id="id-data"></p>
             </div>
-            <div class="detail-item">
+            <div class="detail11.25 4.5h2.25c.621 0 1.125-item">
                 <span>Fecha de Emisión</span>
                 <p id="date-data"></p>
-            </div>
-            <a href="https://www.esam.edu.bo/" target="_blank" class="footer-link">Visitar Sitio Oficial →</a>
+.504 1.125 1.125v2.25m-4.5             </div>
+        </div>
+        <div class="card-footer">
+            <p class="footer-text">Visitar el sitio web oficial</p>
+            <a href="https://www.esam.edu.bo0h4.5m-4.5 0l4.5-4.5m0 0l/" target="_blank" class="icon-link" aria-label="Visitar sitio oficial de ESAM">
+                <svg4.5 4.5M13.5 12h-4.5" />
+                </svg>
+            </a>
         </div>
     </div>
     
     <!-- Contenedor de Error -->
-    <div class="card error" id="error-container" style="display: none;">
-        <div class="branding-side">
-            <img src="https://www.esam.edu.bo/img/logo_esam_principal.png" alt="Logo ESAM" class="esam-logo">
-            <div class="verification-status" style="color: var(--error-red);">NO VÁLIDO</div>
+     xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0<div class="glass-card" id="error-container" style="display: none;">
+        <div 0 24 24"><path d="M12 2C6.48 2 class="card-header">
+            <img src="https://www.esam.edu.bo/img/logo 2 6.48 2 12s4.48 10 10 10_esam_blanco.png" alt="Logo ESAM" class="esam-logo-white">
+             10-4.48 10-10S17.52 2 1<div class="status-pill error">VERIFICACIÓN FALLIDA</div>
         </div>
-        <div class="details-side">
-            <h1 class="error-title">Verificación Fallida</h1>
-            <p class="subtitle">No se pudieron validar los datos. Por favor, contacte a la institución para más información.</p>
-            <a href="https://www.esam.edu.bo/" target="_blank" class="footer-link">Ir al Sitio de ESAM →</a>
+        <div class="card-body">
+            <h1>Credencial no encontrada</h1>
+            <p style="color: var(--text-translucent);2 2zm-1 17.93c-3.95-.49-7-3 font-size: 14px;">Los datos de este código no son válidos o han caducado. Por.85-7-7.93 0-.62.08-1.21.2 favor, contacte a la institución.</p>
+        </div>
+        <div class="card-footer">
+             <a href="https://www.esam.edu.bo/" target="_blank" class="icon-link1-1.79L9 15v1c0 1.1.9 2 2" aria-label="Visitar el sitio oficial de ESAM">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 2v1.93zm6.9-2.54c-.26-.81- 24" stroke-width="2" stroke="currentColor">
+                     <path stroke-linecap="round"1-1.39-1.9-1.39h-1v-3c0-. stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A255-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-..25 2.25 0 0018 18.75V10.5m-4.5 0V6.75A2.25 2.2541c2.93 1.19 5 4.06 5 7.41 0 0111.25 4.5h2.25c.621 0  0 2.08-.8 3.97-2.1 5.39z"/></1.125.504 1.125 1.125v2.svg>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Contenedor de Error -->
+    25m-4.5 0h4.5m-4.5 0l4.5<div class="verification-card error" id="error-container" style="display: none;">
+        <-4.5m0 0l4.5 4.5M13.5 12h-div class="card-header">
+            <img src="https://i.ibb.co/L5k4.5" />
+                </svg>
+            </a>
         </div>
     </div>
 
 
-    <script>
+    <script>6z31/logo-esam-blanco.png" alt="Logo ESAM" class="logo">
       // NO TOCAR ESTE SCRIPT. FUNCIONA PERFECTO.
-      window.onload = function() {
+      window.onload = function
+            <h1>Verificación Fallida</h1>
+        </div>
+         <hr class="glowing-divider">
+         () {
         const params = new URLSearchParams(window.location.search);
         
-        const prog = params.get('prog');
+        const prog =<div class="details-section">
+             <p>Los datos de esta credencial no son válidos o params.get('prog');
         const name = params.get('name');
         const id = params.get('id');
         const date = params.get('date');
 
-        if (prog && name && id && date) {
+        if (prog && name && id el enlace ha caducado. Por favor, contacte a la institución.</p>
+         </div>
+         <div class=" && date) {
           document.getElementById('prog-data').textContent = prog;
-          document.getElementById('name-data').textContent = name;
+          document.getElementById('card-footer">
+            <p class="footer-text">Ir al sitio web oficial</p>
+            name-data').textContent = name;
           document.getElementById('id-data').textContent = id;
-          document.getElementById('date-data').textContent = date;
-          document.getElementById('verification-container').style.display = 'flex';
+          <a href="https://www.esam.edu.bo/" target="_blank" class="icon-link" ariadocument.getElementById('date-data').textContent = date;
+          document.getElementById('verification-container').style.-label="Visitar sitio oficial de ESAM">
+                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24display = 'block';
         } else {
-          document.getElementById('error-container').style.display = 'flex';
+          document.getElementById('error-container').style.display = 'block';
         }
       };
     </script>
