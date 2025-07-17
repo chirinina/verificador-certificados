@@ -28,7 +28,6 @@
         --esam-blue-dark: #011229;
         --esam-blue-light: #03234f;
         --esam-gold: #ffc404;
-        --success-green: #10b981;
         --error-red: #ef4444;
         --bg-gradient-start: #f4f6f9;
         --bg-gradient-end: #e3e8f0;
@@ -128,11 +127,12 @@
         letter-spacing: 1px;
       }
 
+      /* ESTILO PARA CORONA DORADA */
       .verified .status-icon {
-        color: var(--success-green);
+        color: var(--esam-gold);
       }
       .verified .status-text {
-        color: var(--success-green);
+        color: var(--esam-gold);
       }
 
       .invalid .status-icon {
@@ -203,21 +203,36 @@
       }
 
       .footer-link {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
         margin-top: 40px;
         font-size: 14px;
         font-weight: 600;
-        color: #fff;
-        background-color: var(--esam-blue-dark);
         text-decoration: none;
-        padding: 12px 24px;
-        border-radius: 8px;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        transition: all 0.2s ease;
       }
 
-      .footer-link:hover {
+      /* Estilo de Botón para el enlace de éxito */
+      #verification-container .footer-link {
+        color: #fff;
+        background-color: var(--esam-blue-dark);
+        padding: 12px 24px;
+        border-radius: 8px;
+      }
+      #verification-container .footer-link:hover {
         transform: translateY(-2px);
         box-shadow: 0 10px 20px rgba(2, 22, 49, 0.2);
+      }
+
+      /* Estilo de Texto para el enlace de error */
+      #error-container .footer-link {
+        color: var(--text-light);
+        background-color: transparent;
+      }
+      #error-container .footer-link:hover {
+        color: var(--esam-blue-dark);
+        text-decoration: underline;
       }
 
       /* --- ESTILOS PARA LA TARJETA DE ERROR --- */
@@ -263,7 +278,8 @@
           class="esam-logo"
         />
         <div class="status-badge verified">
-          <div class="status-icon"><i class="fas fa-check"></i></div>
+          <!-- ICONO DE CORONA AÑADIDO -->
+          <div class="status-icon"><i class="fas fa-crown"></i></div>
           <span class="status-text">VERIFICADO</span>
         </div>
         <div class="branding-footer">ESAM</div>
@@ -333,13 +349,11 @@
           No se pudieron validar los datos. Por favor, contacte a la institución
           para más información.
         </p>
-        <a href="https://www.esam.edu.bo/" target="_blank" class="footer-link"
-          >Ir al Sitio de ESAM
-          <i
-            class="fas fa-arrow-right"
-            style="font-size: 12px; margin-left: 5px"
-          ></i
-        ></a>
+        <!-- ESTILO DE ENLACE DE TEXTO APLICADO AQUÍ -->
+        <a href="https://www.esam.edu.bo/" target="_blank" class="footer-link">
+          Ir al Sitio de ESAM
+          <i class="fas fa-arrow-right" style="font-size: 12px"></i>
+        </a>
       </div>
     </div>
 
