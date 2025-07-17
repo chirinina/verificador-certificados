@@ -3,203 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verificación de Certificado - ESAM</title>
+    <title>Credencial Digital Verificada - ESAM</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
       :root {
         --esam-blue: #004AAD;
-        --success-green: #0f9d58;
-        --error-red: #d93025;
-        --light-gray: #f0f2f5;
-        --dark-text: #3c4043;
-        --light-text: #808080;
+        --esam-gold: #D4AF37; /* Un toque de dorado para un look premium */
+        --success-green: #10B981;
+        --error-red: #EF4444;
+        --bg-color: #E5E7EB; /* Un gris más claro y moderno */
+        --card-bg: #FFFFFF;
+        --dark-text: #1F2937;
+        --light-text: #6B7280;
       }
-      
+
+      /* --- ANIMACIÓN --- */
+      @keyframes fadeInSlideUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
       body {
         font-family: 'Poppins', sans-serif;
-        background-color: var(--light-gray);
+        background-color: var(--bg-color);
         color: var(--dark-text);
         margin: 0;
-        padding: 0;
-      }
-
-      .page-header {
-        background-color: #ffffff;
-        padding: 15px 30px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        display: flex;
-        align-items: center;
-      }
-
-      .logo {
-        height: 50px;
-        width: auto;
-      }
-      
-      .main-content {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 40px 20px;
-        min-height: calc(100vh - 160px); /* Ajustar altura para header y footer */
+        min-height: 100vh;
+        padding: 20px;
       }
 
-      .container {
-        background-color: #ffffff;
-        padding: 40px;
-        border-radius: 12px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        max-width: 550px;
+      /* --- ESTRUCTURA DE LA TARJETA --- */
+      .card {
+        display: flex;
+        max-width: 700px;
         width: 100%;
-        border-top: 5px solid var(--esam-blue);
-      }
-
-      .header-icon {
-        font-size: 50px;
-        background-color: #e6f4ea;
-        border-radius: 50%;
-        width: 80px;
-        height: 80px;
-        line-height: 80px;
-        margin: 0 auto 15px auto;
+        background-color: var(--card-bg);
+        border-radius: 16px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        overflow: hidden;
+        animation: fadeInSlideUp 0.8s ease-out forwards;
       }
       
-      .header-icon.success {
-        color: var(--success-green);
-        background-color: #e6f4ea;
-      }
-      .header-icon.error {
-        color: var(--error-red);
-        background-color: #fce8e6;
-        font-weight: bold;
-      }
-
-      h1 {
-        font-size: 26px;
-        font-weight: 700;
-        margin: 0 0 10px 0;
-        color: var(--esam-blue);
-      }
-
-      h1.error-title {
-        color: var(--error-red);
-      }
-
-      .subtitle {
-        font-size: 16px;
-        color: var(--light-text);
-        margin-bottom: 30px;
-      }
-
-      hr {
-        border: none;
-        height: 1px;
-        background-color: #e0e0e0;
-        margin-bottom: 30px;
-      }
-
-      .details-grid {
-        text-align: left;
-      }
-
-      .detail-item {
+      /* --- LADO IZQUIERDO (MARCA) --- */
+      .branding-side {
+        background-color: var(--esam-blue);
+        color: #FFFFFF;
+        padding: 40px;
+        width: 40%;
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
-        padding: 15px 0;
-        border-bottom: 1px solid #f0f0f0;
+        text-align: center;
+        position: relative;
       }
-      .detail-item:last-child {
-        border-bottom: none;
+      .branding-side::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('https://www.transparenttextures.com/patterns/clean-gray-paper.png');
+        opacity: 0.05;
+      }
+      .esam-logo {
+        width: 120px;
+        margin-bottom: 20px;
+      }
+      .verification-status {
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        border-top: 2px solid var(--esam-gold);
+        border-bottom: 2px solid var(--esam-gold);
+        padding: 10px 0;
       }
 
-      .detail-item span {
+      /* --- LADO DERECHO (DETALLES) --- */
+      .details-side {
+        padding: 40px;
+        width: 60%;
+      }
+      .details-side h1 {
+        font-size: 22px;
+        font-weight: 600;
+        margin: 0 0 5px 0;
+      }
+      .details-side .subtitle {
         font-size: 14px;
         color: var(--light-text);
+        margin-bottom: 30px;
+      }
+      .detail-item {
+        margin-bottom: 20px;
+      }
+      .detail-item span {
+        font-size: 12px;
+        color: var(--light-text);
+        font-weight: 600;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 4px;
       }
       .detail-item p {
         font-size: 16px;
-        font-weight: 600;
         margin: 0;
-        text-align: right;
+        font-weight: 400;
       }
-
-      .cta-button {
+      .footer-link {
         display: inline-block;
-        background-color: var(--esam-blue);
-        color: #ffffff;
-        padding: 12px 30px;
-        border-radius: 8px;
-        text-decoration: none;
+        margin-top: 20px;
+        font-size: 14px;
         font-weight: 600;
-        margin-top: 30px;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        color: var(--esam-blue);
+        text-decoration: none;
+        transition: opacity 0.2s;
       }
-      .cta-button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(0, 74, 173, 0.3);
+      .footer-link:hover {
+        opacity: 0.8;
+      }
+      
+      /* --- ESTILOS PARA LA TARJETA DE ERROR --- */
+      .error .branding-side {
+        background-color: #374151; /* Gris oscuro para error */
+      }
+      .error .verification-status {
+        border-color: var(--error-red);
+      }
+      .error h1 {
+        color: var(--error-red);
       }
 
-      .page-footer {
-        text-align: center;
-        padding: 20px;
-        font-size: 12px;
-        color: #9e9e9e;
-        background-color: #ffffff;
+      /* --- RESPONSIVE DESIGN --- */
+      @media (max-width: 640px) {
+        .card {
+          flex-direction: column;
+        }
+        .branding-side, .details-side {
+          width: 100%;
+          box-sizing: border-box;
+        }
+        .branding-side {
+          padding: 30px;
+        }
+        .esam-logo {
+          width: 100px;
+        }
       }
 
     </style>
 </head>
 <body>
-    <header class="page-header">
-        <a href="https://www.esam.edu.bo/" target="_blank">
-            <img src="https://www.esam.edu.bo/img/logo_esam_principal.png" alt="Logo ESAM" class="logo">
-        </a>
-    </header>
 
-    <main class="main-content">
-        <!-- Contenedor de Verificación Exitosa -->
-        <div class="container" id="verification-container" style="display: none;">
-            <div class="header-icon success">✓</div>
-            <h1>Certificado Verificado</h1>
-            <p class="subtitle">La autenticidad de este documento ha sido confirmada.</p>
-            <hr>
-            <div class="details-grid">
-                <div class="detail-item">
-                    <span>Programa o Curso</span>
-                    <p id="prog-data"></p>
-                </div>
-                <div class="detail-item">
-                    <span>Otorgado a</span>
-                    <p id="name-data"></p>
-                </div>
-                <div class="detail-item">
-                    <span>ID del Certificado</span>
-                    <p id="id-data"></p>
-                </div>
-                <div class="detail-item">
-                    <span>Fecha de Emisión</span>
-                    <p id="date-data"></p>
-                </div>
+    <!-- Contenedor de Verificación Exitosa -->
+    <div class="card" id="verification-container" style="display: none;">
+        <div class="branding-side">
+            <img src="https://www.esam.edu.bo/img/logo_esam_principal.png" alt="Logo ESAM" class="esam-logo">
+            <div class="verification-status" style="color: var(--success-green);">VERIFICADO</div>
+        </div>
+        <div class="details-side">
+            <h1>Credencial Digital</h1>
+            <p class="subtitle">Este documento es auténtico y ha sido emitido por ESAM.</p>
+            <div class="detail-item">
+                <span>Programa o Curso</span>
+                <p id="prog-data"></p>
             </div>
-            <a href="https://www.esam.edu.bo/" target="_blank" class="cta-button">Visitar Sitio Oficial de ESAM</a>
+            <div class="detail-item">
+                <span>Otorgado a</span>
+                <p id="name-data"></p>
+            </div>
+            <div class="detail-item">
+                <span>ID de Certificado</span>
+                <p id="id-data"></p>
+            </div>
+            <div class="detail-item">
+                <span>Fecha de Emisión</span>
+                <p id="date-data"></p>
+            </div>
+            <a href="https://www.esam.edu.bo/" target="_blank" class="footer-link">Visitar Sitio Oficial →</a>
         </div>
-        
-        <!-- Contenedor de Error -->
-        <div class="container" id="error-container" style="display: none;">
-            <div class="header-icon error">!</div>
+    </div>
+    
+    <!-- Contenedor de Error -->
+    <div class="card error" id="error-container" style="display: none;">
+        <div class="branding-side">
+            <img src="https://www.esam.edu.bo/img/logo_esam_principal.png" alt="Logo ESAM" class="esam-logo">
+            <div class="verification-status" style="color: var(--error-red);">NO VÁLIDO</div>
+        </div>
+        <div class="details-side">
             <h1 class="error-title">Verificación Fallida</h1>
-            <p class="subtitle">No se pudieron validar los datos del certificado. Por favor, compruebe el código QR o contacte a la institución.</p>
-             <a href="https://www.esam.edu.bo/" target="_blank" class="cta-button">Ir a ESAM</a>
+            <p class="subtitle">No se pudieron validar los datos. Por favor, contacte a la institución para más información.</p>
+            <a href="https://www.esam.edu.bo/" target="_blank" class="footer-link">Ir al Sitio de ESAM →</a>
         </div>
-    </main>
+    </div>
 
-    <footer class="page-footer">
-        © <?= new Date().getFullYear() ?> ESAM - Escuela Superior de Administración de Empresas. Todos los derechos reservados.
-    </footer>
 
     <script>
       // NO TOCAR ESTE SCRIPT. FUNCIONA PERFECTO.
@@ -216,13 +225,10 @@
           document.getElementById('name-data').textContent = name;
           document.getElementById('id-data').textContent = id;
           document.getElementById('date-data').textContent = date;
-          document.getElementById('verification-container').style.display = 'block';
+          document.getElementById('verification-container').style.display = 'flex';
         } else {
-          document.getElementById('error-container').style.display = 'block';
+          document.getElementById('error-container').style.display = 'flex';
         }
-
-        // Script para el año en el footer.
-        document.querySelector('.page-footer').innerHTML = document.querySelector('.page-footer').innerHTML.replace('<?= new Date().getFullYear() ?>', new Date().getFullYear());
       };
     </script>
 </body>
