@@ -111,14 +111,22 @@
       }
 
       .status-icon {
-        width: 70px;
-        height: 70px;
+        width: 80px; /* Ajustado para el nuevo ícono */
+        height: 80px; /* Ajustado para el nuevo ícono */
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 32px;
         background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      /* Estilo para el ícono de IA */
+      .status-icon .ai-icon {
+        width: 70px; /* Tamaño de la imagen */
+        height: 70px;
+        border-radius: 50%; /* Mantiene la forma circular */
+        object-fit: cover;
       }
 
       .status-text {
@@ -278,8 +286,14 @@
           class="esam-logo"
         />
         <div class="status-badge verified">
-          <!-- ICONO DE CORONA AÑADIDO -->
-          <div class="status-icon"><i class="fas fa-crown"></i></div>
+          <!-- ICONO MODIFICADO -->
+          <div class="status-icon">
+            <img
+              src="https://i.ibb.co/L5nkLd7/ai-icon-realistic.png"
+              alt="Verificado por IA"
+              class="ai-icon"
+            />
+          </div>
           <span class="status-text">VERIFICADO</span>
         </div>
         <div class="branding-footer">ESAM</div>
@@ -319,13 +333,10 @@
             </div>
           </div>
         </div>
+        <!-- BOTÓN MODIFICADO SIN ICONO -->
         <a href="https://www.esam.edu.bo/" target="_blank" class="footer-link"
-          >Visitar Sitio Oficial
-          <i
-            class="fas fa-arrow-right"
-            style="font-size: 12px; margin-left: 5px"
-          ></i
-        ></a>
+          >Visitar Sitio Oficial</a
+        >
       </div>
     </div>
 
