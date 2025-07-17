@@ -3,20 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Credencial Digital Verificada - ESAM</title>
-    <!-- Favicon (ícono de la pestaña) -->
+    <title>Credencial Digital Profesional - ESAM</title>
+
+    <!-- Favicon -->
     <link
       rel="icon"
-      href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkv-3rBHkhu3dVCgCkbtWQntutxM8ERkOpZEEN0R0KmXMgKIapJ-gIuCaiIB_aIRRRaRc&usqp=CAU"
+      href="https://www.esam.edu.bo/img/logo_esam_principal.png"
     />
 
-    <!-- Google Fonts y Kit de Íconos -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Font Awesome Kit -->
     <script
       src="https://kit.fontawesome.com/4a9d70a597.js"
       crossorigin="anonymous"
@@ -24,39 +27,46 @@
 
     <style>
       :root {
-        /* Paleta de Colores Mejorada */
-        --esam-blue-dark: #011229;
-        --esam-blue-light: #03234f;
-        --esam-gold: #ffc404;
-        --error-red: #ef4444;
-        --bg-gradient-start: #f4f6f9;
-        --bg-gradient-end: #e3e8f0;
-        --card-bg: #ffffff;
-        --text-dark: #111827;
-        --text-light: #6b7280;
-        --border-color: #e5e7eb;
+        /* Paleta de Colores Profesional */
+        --brand-primary: #0052ff; /* Azul Eléctrico */
+        --brand-secondary: #0d1b3e; /* Azul Oscuro Profundo */
+        --success-main: #00bfa6; /* Verde Menta */
+        --success-light: #a8ffec;
+        --error-main: #ff4d4d; /* Rojo Coral */
+        --error-light: #ffd6d6;
+        --neutral-white: #ffffff;
+        --neutral-light: #f0f4f8;
+        --neutral-medium: #a0aec0;
+        --neutral-dark: #2d3748;
+        --shadow-color: rgba(13, 27, 62, 0.15);
       }
 
-      /* --- ANIMACIÓN DE ENTRADA --- */
+      /* --- Animaciones y Transiciones --- */
       @keyframes fadeIn {
         from {
           opacity: 0;
-          transform: scale(0.95);
+          transform: translateY(20px);
         }
         to {
           opacity: 1;
-          transform: scale(1);
+          transform: translateY(0);
         }
       }
 
+      @keyframes scaleIn {
+        from {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      /* --- Estructura Base --- */
       body {
-        font-family: "Poppins", sans-serif;
-        background-image: linear-gradient(
-          120deg,
-          var(--bg-gradient-start),
-          var(--bg-gradient-end)
-        );
-        color: var(--text-dark);
+        font-family: "Inter", sans-serif;
         margin: 0;
         display: flex;
         justify-content: center;
@@ -64,214 +74,236 @@
         min-height: 100vh;
         padding: 2rem;
         box-sizing: border-box;
+        background: url("https://images.unsplash.com/photo-1554141542-02a45a33c2ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
+          no-repeat center center/cover;
+        color: var(--neutral-dark);
       }
 
-      /* --- ESTRUCTURA DE LA TARJETA --- */
+      /* --- Tarjeta Principal con Efecto Glassmorphism --- */
       .card {
-        max-width: 800px;
         width: 100%;
-        background-color: var(--card-bg);
+        max-width: 850px;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(25px) saturate(180%);
+        -webkit-backdrop-filter: blur(25px) saturate(180%);
+        border: 1px solid rgba(255, 255, 255, 0.3);
         border-radius: 24px;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1),
-          0 10px 15px -3px rgba(0, 0, 0, 0.05);
-        overflow: hidden;
-        animation: fadeIn 0.8s ease-out forwards;
-        border: 1px solid var(--border-color);
+        box-shadow: 0 15px 35px var(--shadow-color);
         display: flex;
+        overflow: hidden;
+        animation: fadeIn 1s ease-out;
       }
 
-      /* --- LADO IZQUIERDO (MARCA Y ESTADO) --- */
-      .branding-side {
-        background-image: linear-gradient(
-          160deg,
-          var(--esam-blue-light),
-          var(--esam-blue-dark)
-        );
-        color: #ffffff;
-        padding: 40px;
-        width: 35%;
+      /* --- Panel Izquierdo --- */
+      .left-panel {
+        width: 38%;
+        background: linear-gradient(180deg, var(--brand-secondary), #081124);
+        padding: 50px 40px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         align-items: center;
+        justify-content: space-between;
         text-align: center;
         position: relative;
       }
 
       .esam-logo {
-        width: 100px;
-        margin-bottom: 20px;
+        width: 110px;
+        margin-bottom: 30px;
+        filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+        animation: fadeIn 1.2s ease-out 0.2s both;
       }
 
       .status-badge {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
+        animation: scaleIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s both;
       }
 
-      .status-icon {
-        width: 80px; /* Ajustado para el nuevo ícono */
-        height: 80px; /* Ajustado para el nuevo ícono */
+      .status-icon-wrapper {
+        width: 90px;
+        height: 90px;
         border-radius: 50%;
+        margin: 0 auto 20px auto;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 32px;
-        background-color: rgba(255, 255, 255, 0.1);
+        font-size: 36px;
+        transition: all 0.3s ease;
       }
 
-      /* Estilo para el ícono de IA */
-      .status-icon .ai-icon {
-        width: 70px; /* Tamaño de la imagen */
-        height: 70px;
-        border-radius: 50%; /* Mantiene la forma circular */
-        object-fit: cover;
+      .status-badge.verified .status-icon-wrapper {
+        background: linear-gradient(
+          135deg,
+          var(--success-light),
+          var(--success-main)
+        );
+        color: var(--brand-secondary);
+        box-shadow: 0 0 25px var(--success-main);
+      }
+
+      .status-badge.invalid .status-icon-wrapper {
+        background: linear-gradient(
+          135deg,
+          var(--error-light),
+          var(--error-main)
+        );
+        color: var(--neutral-white);
+        box-shadow: 0 0 25px var(--error-main);
       }
 
       .status-text {
-        font-size: 20px;
-        font-weight: 700;
-        letter-spacing: 1px;
+        font-size: 22px;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
       }
 
-      /* ESTILO PARA CORONA DORADA */
-      .verified .status-icon {
-        color: var(--esam-gold);
+      .status-badge.verified .status-text {
+        color: var(--success-main);
       }
-      .verified .status-text {
-        color: var(--esam-gold);
-      }
-
-      .invalid .status-icon {
-        color: var(--error-red);
-      }
-      .invalid .status-text {
-        color: var(--error-red);
+      .status-badge.invalid .status-text {
+        color: var(--error-main);
       }
 
       .branding-footer {
-        font-size: 12px;
-        color: rgba(255, 255, 255, 0.5);
+        font-size: 14px;
+        color: var(--neutral-medium);
+        opacity: 0.6;
       }
 
-      /* --- LADO DERECHO (DETALLES) --- */
-      .details-side {
+      /* --- Panel Derecho --- */
+      .right-panel {
+        width: 62%;
         padding: 50px;
-        width: 65%;
       }
 
-      .details-side h1 {
-        font-size: 28px;
-        font-weight: 700;
-        margin: 0 0 5px 0;
-        color: var(--esam-blue-dark);
-      }
-
-      .details-side .subtitle {
-        font-size: 16px;
-        color: var(--text-light);
+      .right-panel .header {
         margin-bottom: 40px;
+        animation: fadeIn 1.2s ease-out 0.6s both;
+      }
+
+      .right-panel h1 {
+        font-size: 32px;
+        font-weight: 800;
+        margin: 0 0 8px 0;
+        color: var(--brand-secondary);
+      }
+
+      .right-panel .error-title {
+        color: var(--error-main);
+      }
+
+      .right-panel .subtitle {
+        font-size: 16px;
+        color: var(--neutral-medium);
+        margin: 0;
         font-weight: 400;
       }
 
       .details-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 30px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 35px;
       }
 
       .detail-item {
         display: flex;
-        align-items: center;
-        gap: 12px;
+        align-items: flex-start;
+        gap: 15px;
+        animation: fadeIn 1.2s ease-out 0.8s both;
       }
 
       .detail-item .icon {
-        font-size: 20px;
-        color: var(--esam-gold);
+        font-size: 22px;
+        color: var(--brand-primary);
+        padding-top: 5px;
         width: 25px;
-        text-align: center;
       }
 
       .detail-item .text-content span {
+        display: block;
         font-size: 12px;
-        color: var(--text-light);
-        font-weight: 500;
+        color: var(--neutral-medium);
+        font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.5px;
-        display: block;
+        margin-bottom: 4px;
       }
 
       .detail-item .text-content p {
-        font-size: 15px;
+        font-size: 16px;
         margin: 0;
         font-weight: 500;
-        color: var(--text-dark);
+        color: var(--neutral-dark);
       }
 
+      /* --- Botones / Enlaces --- */
       .footer-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        margin-top: 40px;
-        font-size: 14px;
+        display: inline-block;
+        margin-top: 45px;
+        padding: 14px 30px;
+        font-size: 15px;
         font-weight: 600;
         text-decoration: none;
-        transition: all 0.2s ease;
+        border-radius: 12px;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        animation: fadeIn 1.2s ease-out 1s both;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
       }
 
-      /* Estilo de Botón para el enlace de éxito */
-      #verification-container .footer-link {
-        color: #000000;
-        /* background-color: var(--esam-blue-dark); */
-        padding: 12px 24px;
-        border-radius: 8px;
+      .footer-link.primary {
+        background-color: var(--brand-primary);
+        color: var(--neutral-white);
+        box-shadow: 0 8px 20px rgba(0, 82, 255, 0.25);
       }
-      #verification-container .footer-link:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 20px rgba(2, 22, 49, 0.2);
+      .footer-link.primary:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 25px rgba(0, 82, 255, 0.35);
       }
 
-      /* Estilo de Texto para el enlace de error */
-      #error-container .footer-link {
-        color: var(--text-light);
-        background-color: transparent;
+      .footer-link.secondary {
+        color: var(--neutral-medium);
       }
-      #error-container .footer-link:hover {
-        color: var(--esam-blue-dark);
-        text-decoration: underline;
+      .footer-link.secondary:hover {
+        color: var(--brand-secondary);
       }
 
-      /* --- ESTILOS PARA LA TARJETA DE ERROR --- */
-      .error .branding-side {
-        background-image: linear-gradient(160deg, #4b5563, #1f2937);
-      }
-      .error h1.error-title {
-        color: var(--error-red);
-      }
-
-      /* --- DISEÑO RESPONSIVE --- */
-      @media (max-width: 768px) {
+      /* --- Diseño Responsivo --- */
+      @media (max-width: 880px) {
         .card {
           flex-direction: column;
         }
-        .branding-side,
-        .details-side {
+        .left-panel,
+        .right-panel {
           width: 100%;
           box-sizing: border-box;
         }
-        .branding-side {
-          padding: 30px;
-          height: 250px;
-          justify-content: center;
+        .left-panel {
+          padding: 40px;
+          height: auto;
         }
-        .details-side {
-          padding: 40px 30px;
+        .right-panel {
+          padding: 40px;
         }
         .details-grid {
           grid-template-columns: 1fr;
+          gap: 30px;
+        }
+      }
+
+      @media (max-width: 500px) {
+        body {
+          padding: 1rem;
+        }
+        .right-panel {
+          padding: 30px;
+        }
+        .details-grid {
           gap: 25px;
+        }
+        .right-panel h1 {
+          font-size: 28px;
         }
       }
     </style>
@@ -279,40 +311,38 @@
   <body>
     <!-- Contenedor de Verificación Exitosa -->
     <div class="card" id="verification-container" style="display: none">
-      <div class="branding-side">
+      <div class="left-panel">
         <img
           src="https://www.esam.edu.bo/img/logo_esam_principal.png"
           alt="Logo ESAM"
           class="esam-logo"
         />
+
         <div class="status-badge verified">
-          <!-- ICONO MODIFICADO -->
-          <div class="status-icon">
-            <img
-              src="https://i.ibb.co/L5nkLd7/ai-icon-realistic.png"
-              alt="Verificado por IA"
-              class="ai-icon"
-            />
-          </div>
-          <span class="status-text">VERIFICADO</span>
+          <div class="status-icon-wrapper"><i class="fas fa-check"></i></div>
+          <span class="status-text">Verificado</span>
         </div>
-        <div class="branding-footer">ESAM</div>
+
+        <div class="branding-footer">Credencial Digital ESAM</div>
       </div>
-      <div class="details-side">
-        <h1>Credencial Digital</h1>
-        <p class="subtitle">
-          Este documento es auténtico y ha sido emitido por ESAM.
-        </p>
+      <div class="right-panel">
+        <div class="header">
+          <h1>Credencial Digital Auténtica</h1>
+          <p class="subtitle">
+            Este documento ha sido verificado y emitido por la Escuela Superior
+            de Administración de Empresas.
+          </p>
+        </div>
         <div class="details-grid">
           <div class="detail-item">
             <div class="icon"><i class="fas fa-graduation-cap"></i></div>
             <div class="text-content">
-              <span>Programa o Curso</span>
+              <span>Programa Académico</span>
               <p id="prog-data"></p>
             </div>
           </div>
           <div class="detail-item">
-            <div class="icon"><i class="fas fa-user"></i></div>
+            <div class="icon"><i class="fas fa-user-check"></i></div>
             <div class="text-content">
               <span>Otorgado a</span>
               <p id="name-data"></p>
@@ -321,7 +351,7 @@
           <div class="detail-item">
             <div class="icon"><i class="fas fa-barcode"></i></div>
             <div class="text-content">
-              <span>ID de Certificado</span>
+              <span>ID de Credencial</span>
               <p id="id-data"></p>
             </div>
           </div>
@@ -333,38 +363,49 @@
             </div>
           </div>
         </div>
-        <!-- BOTÓN MODIFICADO SIN ICONO -->
-        <a href="https://www.esam.edu.bo/" target="_blank" class="footer-link"
+        <a
+          href="https://www.esam.edu.bo/"
+          target="_blank"
+          class="footer-link primary"
           >Visitar Sitio Oficial</a
         >
       </div>
     </div>
 
     <!-- Contenedor de Error -->
-    <div class="card error" id="error-container" style="display: none">
-      <div class="branding-side">
+    <div class="card" id="error-container" style="display: none">
+      <div class="left-panel">
         <img
           src="https://www.esam.edu.bo/img/logo_esam_principal.png"
           alt="Logo ESAM"
           class="esam-logo"
         />
+
         <div class="status-badge invalid">
-          <div class="status-icon"><i class="fas fa-times"></i></div>
-          <span class="status-text">NO VÁLIDO</span>
+          <div class="status-icon-wrapper"><i class="fas fa-times"></i></div>
+          <span class="status-text">No Válido</span>
         </div>
-        <div class="branding-footer">ESAM</div>
+
+        <div class="branding-footer">Credencial Digital ESAM</div>
       </div>
-      <div class="details-side">
-        <h1 class="error-title">Verificación Fallida</h1>
-        <p class="subtitle">
-          No se pudieron validar los datos. Por favor, contacte a la institución
-          para más información.
-        </p>
-        <!-- ESTILO DE ENLACE DE TEXTO APLICADO AQUÍ -->
-        <a href="https://www.esam.edu.bo/" target="_blank" class="footer-link">
-          Ir al Sitio de ESAM
-          <i class="fas fa-arrow-right" style="font-size: 12px"></i>
-        </a>
+      <div class="right-panel">
+        <div class="header">
+          <h1 class="error-title">Verificación Fallida</h1>
+          <p class="subtitle">
+            No se pudo autenticar esta credencial. Por favor, revisa los datos o
+            contacta a la institución.
+          </p>
+        </div>
+        <a
+          href="https://www.esam.edu.bo/"
+          target="_blank"
+          class="footer-link secondary"
+          >Ir al Sitio de ESAM
+          <i
+            class="fas fa-arrow-right"
+            style="font-size: 12px; margin-left: 5px"
+          ></i
+        ></a>
       </div>
     </div>
 
