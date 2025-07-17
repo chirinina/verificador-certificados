@@ -14,7 +14,7 @@
     <!-- Script de Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Kit de Íconos de Font Awesome -->
+    <!-- Kit de Íconos de Font Awesome (Aún necesario para los otros íconos) -->
     <script
       src="https://kit.fontawesome.com/4a9d70a597.js"
       crossorigin="anonymous"
@@ -29,12 +29,17 @@
     />
 
     <script>
-      // Configuración personalizada para Tailwind (opcional, pero útil para usar la fuente Poppins)
+      // Configuración personalizada para Tailwind (para usar la fuente Poppins y colores)
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
               sans: ["Poppins", "sans-serif"],
+            },
+            colors: {
+              "esam-blue-dark": "#011229",
+              "esam-blue-light": "#03234F",
+              "esam-gold": "#FFC404",
             },
           },
         },
@@ -48,11 +53,11 @@
     <div
       id="verification-container"
       style="display: none"
-      class="w-full max-w-4xl bg-white shadow-2xl rounded-3xl overflow-hidden flex flex-col md:flex-row animate-fade-in-up"
+      class="w-full max-w-4xl bg-white shadow-2xl rounded-3xl overflow-hidden flex flex-col md:flex-row"
     >
       <!-- Lado Izquierdo: Marca y Estado -->
       <div
-        class="w-full md:w-[35%] bg-gradient-to-br from-[#03234F] to-[#011229] text-white p-8 flex flex-col justify-between items-center text-center"
+        class="w-full md:w-[35%] bg-gradient-to-br from-esam-blue-light to-esam-blue-dark text-white p-8 flex flex-col justify-between items-center text-center"
       >
         <img
           src="https://www.esam.edu.bo/img/logo_esam_principal.png"
@@ -61,12 +66,17 @@
         />
 
         <div class="flex flex-col items-center gap-4 my-8 md:my-0">
+          <!-- CÍRCULO CON ICONO DE MEDALLA DE ORO REALISTA -->
           <div
-            class="flex items-center justify-center w-[70px] h-[70px] rounded-full bg-white/10"
+            class="flex items-center justify-center w-[80px] h-[80px] rounded-full bg-white/10 p-2"
           >
-            <i class="fas fa-crown text-3xl text-yellow-400"></i>
+            <img
+              src="https://i.ibb.co/L5r64zX/gold-medal-realistic.png"
+              alt="Medalla de Verificado"
+              class="w-full h-full object-contain"
+            />
           </div>
-          <span class="font-bold text-xl tracking-wider text-yellow-400"
+          <span class="font-bold text-xl tracking-wider text-esam-gold"
             >VERIFICADO</span
           >
         </div>
@@ -75,8 +85,8 @@
       </div>
 
       <!-- Lado Derecho: Detalles -->
-      <div class="w-full md:w-[65%] p-8 md:p-12">
-        <h1 class="text-3xl font-bold text-[#011229] mb-1">
+      <div class="w-full md:w-[65%] p-8 md:p-12 flex flex-col">
+        <h1 class="text-3xl font-bold text-esam-blue-dark mb-1">
           Credencial Digital
         </h1>
         <p class="text-base text-slate-500 mb-10">
@@ -86,7 +96,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
           <div class="flex items-center gap-4">
             <i
-              class="fas fa-graduation-cap text-xl text-yellow-400 w-6 text-center"
+              class="fas fa-graduation-cap text-xl text-esam-gold w-6 text-center"
             ></i>
             <div>
               <span
@@ -100,7 +110,7 @@
             </div>
           </div>
           <div class="flex items-center gap-4">
-            <i class="fas fa-user text-xl text-yellow-400 w-6 text-center"></i>
+            <i class="fas fa-user text-xl text-esam-gold w-6 text-center"></i>
             <div>
               <span
                 class="text-xs font-semibold text-slate-400 uppercase tracking-wider"
@@ -114,7 +124,7 @@
           </div>
           <div class="flex items-center gap-4">
             <i
-              class="fas fa-barcode text-xl text-yellow-400 w-6 text-center"
+              class="fas fa-barcode text-xl text-esam-gold w-6 text-center"
             ></i>
             <div>
               <span
@@ -126,7 +136,7 @@
           </div>
           <div class="flex items-center gap-4">
             <i
-              class="fas fa-calendar-alt text-xl text-yellow-400 w-6 text-center"
+              class="fas fa-calendar-alt text-xl text-esam-gold w-6 text-center"
             ></i>
             <div>
               <span
@@ -141,10 +151,11 @@
           </div>
         </div>
 
+        <!-- ENLACE SIN FONDO -->
         <a
           href="https://www.esam.edu.bo/"
           target="_blank"
-          class="inline-flex items-center gap-2 mt-10 px-6 py-3 bg-[#011229] text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
+          class="inline-flex items-center gap-2 mt-auto pt-8 font-semibold text-slate-500 hover:text-esam-blue-dark hover:underline transition-colors duration-200 self-start"
         >
           Visitar Sitio Oficial
           <i class="fas fa-arrow-right text-xs"></i>
@@ -156,7 +167,7 @@
     <div
       id="error-container"
       style="display: none"
-      class="w-full max-w-4xl bg-white shadow-2xl rounded-3xl overflow-hidden flex flex-col md:flex-row animate-fade-in-up"
+      class="w-full max-w-4xl bg-white shadow-2xl rounded-3xl overflow-hidden flex flex-col md:flex-row"
     >
       <!-- Lado Izquierdo: Marca y Estado -->
       <div
@@ -183,7 +194,7 @@
       </div>
 
       <!-- Lado Derecho: Detalles -->
-      <div class="w-full md:w-[65%] p-8 md:p-12">
+      <div class="w-full md:w-[65%] p-8 md:p-12 flex flex-col">
         <h1 class="text-3xl font-bold text-red-500 mb-1">
           Verificación Fallida
         </h1>
@@ -195,7 +206,7 @@
         <a
           href="https://www.esam.edu.bo/"
           target="_blank"
-          class="inline-flex items-center gap-2 mt-10 font-semibold text-slate-500 hover:text-[#011229] hover:underline transition-colors duration-200"
+          class="inline-flex items-center gap-2 mt-auto pt-8 font-semibold text-slate-500 hover:text-esam-blue-dark hover:underline transition-colors duration-200 self-start"
         >
           Ir al Sitio de ESAM
           <i class="fas fa-arrow-right text-xs"></i>
@@ -205,14 +216,6 @@
 
     <script>
       // NO TOCAR ESTE SCRIPT. FUNCIONA PERFECTO.
-      // Añadimos una pequeña animación para la entrada de la tarjeta.
-      function showCard(cardId) {
-        const card = document.getElementById(cardId);
-        card.style.display = "flex";
-        // Tailwind no tiene una clase de animación por defecto, pero podemos añadirla con CSS si es necesario.
-        // Por ahora, el simple 'flex' es suficiente para mostrarlo.
-      }
-
       window.onload = function () {
         const params = new URLSearchParams(window.location.search);
 
@@ -226,9 +229,10 @@
           document.getElementById("name-data").textContent = name;
           document.getElementById("id-data").textContent = id;
           document.getElementById("date-data").textContent = date;
-          showCard("verification-container");
+          document.getElementById("verification-container").style.display =
+            "flex";
         } else {
-          showCard("error-container");
+          document.getElementById("error-container").style.display = "flex";
         }
       };
     </script>
