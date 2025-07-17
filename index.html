@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificación de Certificado</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+      
+      body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        padding: 15px;
+      }
+      .container {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 500px;
+        width: 100%;
+        border-top: 5px solid #4285F4;
+      }
+      .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 25px;
+      }
+      .icon {
+        font-size: 50px;
+        background-color: #e6f4ea;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+        margin-bottom: 15px;
+      }
+      .icon.success {
+        color: #0f9d58;
+      }
+      .icon.error {
+        color: #d93025;
+        background-color: #fce8e6;
+      }
+      h1 {
+        font-size: 24px;
+        font-weight: 700;
+        margin: 0;
+      }
+      h1.success {
+         color: #4285F4;
+      }
+       h1.error {
+         color: #d93025;
+      }
+      .details-grid {
+        text-align: left;
+        margin-top: 20px;
+      }
+      .detail-item {
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #e0e0e0;
+      }
+      .detail-item:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+      }
+      .detail-item span {
+        display: block;
+        font-size: 14px;
+        color: #808080;
+        margin-bottom: 4px;
+        font-weight: 400;
+      }
+      .detail-item p {
+        font-size: 16px;
+        font-weight: 600;
+        margin: 0;
+        color: #3c4043;
+      }
+      .footer {
+        margin-top: 30px;
+        font-size: 12px;
+        color: #9e9e9e;
+      }
+    </style>
+</head>
+<body>
+    <div class="container" id="verification-container" style="display: none;">
+      <div class="header">
+        <div class="icon success">✓</div>
+        <h1 class="success">Certificado Válido</h1>
+      </div>
+      <div class="details-grid">
+        <div class="detail-item">
+          <span>Programa o Curso</span>
+          <p id="prog-data"></p>
+        </div>
+        <div class="detail-item">
+          <span>Estudiante</span>
+          <p id="name-data"></p>
+        </div>
+        <div class="detail-item">
+          <span>ID del Certificado</span>
+          <p id="id-data"></p>
+        </div>
+        <div class="detail-item">
+          <span>Fecha de Emisión</span>
+          <p id="date-data"></p>
+        </div>
+      </div>
+      <div class="footer">
+        Documento verificado digitalmente a través de un sistema automatizado.
+      </div>
+    </div>
+    
+    <div class="container" id="error-container" style="display: none;">
+        <div class="header">
+          <div class="icon error">!</div>
+          <h1 class="error">Datos Inválidos</h1>
+        </div>
+        <p>El enlace de verificación no es correcto o los datos del certificado no se encontraron.</p>
+    </div>
+
+    <script>
+      window.onload = function() {
+        const params = new URLSearchParams(window.location.search);
+        
+        const prog = params.get('prog');
+        const name = params.get('name');
+        const id = params.get('id');
+        const date = params.get('date');
+
+        if (prog && name && id && date) {
+          document.getElementById('prog-data').textContent = prog;
+          document.getElementById('name-data').textContent = name;
+          document.getElementById('id-data').textContent = id;
+          document.getElementById('date-data').textContent = date;
+          document.getElementById('verification-container').style.display = 'block';
+        } else {
+          document.getElementById('error-container').style.display = 'block';
+        }
+      };
+    </script>
+</body>
+</html>
